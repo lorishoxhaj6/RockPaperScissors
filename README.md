@@ -1,5 +1,5 @@
 # Laboratorio di Architettura degli Elaboratori
-![Logo Università di Verona](https://www.univr.it/layouts/univr-bootstrap/assets/images/logo-univr.svg)  
+![Logo Università di Verona]([https://www.univr.it/layouts/univr-bootstrap/assets/images/logo-univr.svg](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.univr.it%2Fit%2Frir-25marzo2019&psig=AOvVaw0757wtRZrgqjigjYQDaJWi&ust=1737363786475000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNi1uMy2gYsDFQAAAAAdAAAAABAE))  
 **Progetto Universitario - Università degli Studi di Verona**  
 _Corso di Architettura degli Elaboratori_  
 _Autori: [Loris Hoxhaj, Mattia Nicolis]_  
