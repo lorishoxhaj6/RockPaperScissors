@@ -1,0 +1,18 @@
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+# * *        * *  * *
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+#       * *  * *        * *
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+#
+# Autori Loris Hoxhaj & Mattia Nicolis
+# A.A 2023/2024
+# Registro a 1 bit
+
+.model REG1
+.inputs A
+.outputs O
+.latch A O re NIL 0
+.end

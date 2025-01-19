@@ -1,0 +1,20 @@
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+# * *        * *  * *
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+#       * *  * *        * *
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+#
+# Autori Loris Hoxhaj & Mattia Nicolis
+# A.A 2023-2024
+# Multiplexer con 1 bit di scelta e 2 opzioni da 1 bit ciscuna
+
+.model MUX1
+.inputs I P S
+.outputs O
+.names I P S O
+11- 1
+0-1 1
+.end

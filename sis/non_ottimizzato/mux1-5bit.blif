@@ -1,0 +1,24 @@
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * * 
+# * *        * *  * *
+# * * * * *  * *  * * * * * 
+# * * * * *  * *  * * * * *
+#       * *  * *        * *
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * * 
+# 
+# Autori Loris Hoxhaj & Mattia Nicolis
+# A.A. 2023-24
+# Multiplexer a 1 bit di scelta e 2 input a 5 bit
+
+.model MUX5
+.inputs I P4 P3 P2 P1 P0 S4 S3 S2 S1 S0
+.outputs O4 O3 O2 O1 O0
+
+.subckt MUX1 I=I P=P4 S=S4 O=O4
+.subckt MUX1 I=I P=P3 S=S3 O=O3
+.subckt MUX1 I=I P=P2 S=S2 O=O2
+.subckt MUX1 I=I P=P1 S=S1 O=O1
+.subckt MUX1 I=I P=P0 S=S0 O=O0
+.search mux1bit.blif
+.end

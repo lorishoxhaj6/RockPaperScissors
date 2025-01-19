@@ -1,0 +1,21 @@
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+# * *        * *  * *
+# * * * * *  * *  * * * * * 
+# * * * * *  * *  * * * * *
+#       * *  * *        * *
+# * * * * *  * *  * * * * * 
+# * * * * *  * *  * * * * * 
+#
+# Autori Loris Hoxhaj & Mattia Nicolis
+# A.A. 2023-24
+# Multiplexer a 2 bit di scelta e 4 input da 2 bit 
+
+.model MUXS4
+.inputs I1 I0 A1 A0 B1 B0 C1 C0 D1 D0
+.outputs O1 O0
+
+.subckt MUXS2 S1=I1 S0=I0 A=A1 B=B1 C=C1 D=D1 O=O1
+.subckt MUXS2 S1=I1 S0=I0 A=A0 B=B0 C=C0 D=D0 O=O0
+.search mux2bit.blif
+.end 

@@ -1,0 +1,259 @@
+.model FSMD
+.inputs INIZIA PRIMO1 PRIMO0 SECONDO1 SECONDO0
+.outputs MANCHE1 MANCHE0 PARTITA1 PARTITA0
+.latch    [23] LatchOut_v5   0
+.latch    [24] LatchOut_v6   0
+.latch    [25] LatchOut_v7   0
+.latch    IM4 RM4 re NIL 0
+.latch    IM3 RM3 re NIL 0
+.latch    IM2 RM2 re NIL 0
+.latch    IM1 RM1 re NIL 0
+.latch    IM0 RM0 re NIL 0
+.latch    TT4 RT4 re NIL 0
+.latch    TT3 RT3 re NIL 0
+.latch    TT2 RT2 re NIL 0
+.latch    TT1 RT1 re NIL 0
+.latch    TT0 RT0 re NIL 0
+.latch    SP1 SUCCP1 re NIL 0
+.latch    SP0 SUCCP0 re NIL 0
+.latch    SS1 SUCCS1 re NIL 0
+.latch    SS0 SUCCS0 re NIL 0
+.names PRIMO0 SECONDO1 SECONDO0 MANCHE0 PP1 PP0 PS1 PS0 SS0 [64] [301] [304] \
+[306] [310] [311] [326] MANCHE1
+-------01------- 1
+---1-----------1 1
+10-1------------ 1
+--11-------1---- 1
+------0-----1--1 1
+--------0-----11 1
+11-0--------0--- 1
+-0----1--1---1-- 1
+---0--1-0-----1- 1
+11--1-----00---- 1
+-01--0---1--1--- 1
+.names PRIMO1 PRIMO0 SECONDO1 SECONDO0 PP1 PP0 PS0 SS0 [64] [299] [301] [304] \
+[306] [307] [310] [311] [316] [325] [326] [336] MANCHE0
+----------------11-- 1
+----0-----01-------- 1
+--1-----1---0------- 1
+-------01------1---- 1
+---------1----1--1-- 1
+-----1----0-------1- 1
+-0-1-1-----------1-- 1
+---0--0-----------10 1
+01-11--0------------ 1
+-1-1-0-0-----1------ 1
+.names INIZIA MANCHE0 PARTITA0 READY LatchOut_v5 LatchOut_v6 LatchOut_v7 [24] \
+[25] [303] [312] PARTITA1
+--1-0--0--- 1
+01---11---- 1
+--1--00--1- 1
+----01-0-1- 1
+---10---0-1 1
+.names MANCHE0 READY FINE LatchOut_v5 LatchOut_v6 LatchOut_v7 [23] [303] [312] \
+[347] PARTITA0
+---11--1-- 1
+--1-0---1- 1
+-1-1-----1 1
+1-1-0-0--- 1
+--1--00--1 1
+.names IM4 IM3 IM2 READY
+1-- 1
+-1- 1
+--1 1
+.names IM1 IM0 TT1 TT0 [342] FINE
+11111 1
+01011 1
+10101 1
+00001 1
+.names INIZIA MANCHE0 FINE LatchOut_v5 LatchOut_v7 [25] [300] [302] [344] [23]
+--------1 1
+---1---1- 1
+00011---- 1
+-100001-- 1
+.names MANCHE0 READY LatchOut_v5 LatchOut_v6 LatchOut_v7 [303] [344] [346] \
+[24]
+---1---1 1
+1---1-1- 1
+-001-1-- 1
+000-11-- 1
+.names MANCHE0 FINE LatchOut_v5 LatchOut_v6 LatchOut_v7 [24] [300] [302] [303] \
+[312] [344] [25]
+----1--1--- 1
+---1-1---1- 1
+1----0----1 1
+-001001---- 1
+00000---1-- 1
+.names INIZIA SUCCP1 PP1
+01 1
+.names INIZIA SUCCP0 PP0
+01 1
+.names INIZIA SUCCS1 PS1
+01 1
+.names INIZIA SUCCS0 PS0
+01 1
+.names INIZIA RM4 C3 [54] [303] [308] [313] IM4
+00-1--- 1
+0-1--1- 1
+-0--1-0 1
+0-0--01 1
+.names INIZIA RM3 C3 C2 [54] [55] [60] [319] IM3
+0-01---- 1
+0---01-- 1
+0-----11 1
+01-0-00- 1
+.names INIZIA RM2 C2 C1 [55] [56] [60] [61] IM2
+0-01---- 1
+0---01-- 1
+0-----01 1
+01-0-0-0 1
+.names INIZIA IM0 RM1 RM0 C1 [56] [61] IM1
+0001--- 1
+0-1-000 1
+.names INIZIA RM0 [346] IM0
+-11 1
+000 1
+.names INIZIA [64] RT4 TT4
+11- 1
+0-1 1
+.names INIZIA PRIMO1 PRIMO0 [64] RT3 TT3
+0---1 1
+110-- 1
+1-10- 1
+.names INIZIA PRIMO0 RT2 TT2
+10- 1
+0-1 1
+.names INIZIA SECONDO1 RT1 TT1
+11- 1
+0-1 1
+.names INIZIA SECONDO0 RT0 TT0
+11- 1
+0-1 1
+.names PRIMO0 SECONDO1 SECONDO0 MANCHE0 PP1 PP0 PS1 PS0 SP0 SS1 SS0 [64] [299] \
+[305] [306] [310] [325] SP1
+----1--------1--- 1
+---1----1--1----- 1
+----1---1--1----- 1
+-----0----1-0---- 1
+0--1-----------1- 1
+---01----0-0----- 1
+-0--1-----0---0-- 1
+-01----0--------1 1
+----1-11-11------ 1
+.names PRIMO1 PRIMO0 SECONDO1 SECONDO0 PP1 PP0 PS1 SS0 [64] [299] [301] [304] \
+[305] [307] [310] [311] [316] [325] [336] SP0
+-----1------1------ 1
+-------------0--1-- 1
+--00-1------------- 1
+-----1--1-----0---- 1
+0---0-------------1 1
+----1---1-0----1--- 1
+------11-------11-- 1
+---0----11-10------ 1
+--1--------00-10--- 1
+-111---0------0--0- 1
+.names PRIMO1 MANCHE1 MANCHE0 PP1 PS1 SS0 [299] [304] [311] [312] [316] SS1
+-00-1------ 1
+0-----1--1- 1
+-----1-1-1- 1
+---1----11- 1
+--0--0----1 1
+.names PRIMO1 PRIMO0 SECONDO1 SECONDO0 PP1 PP0 PS1 PS0 [64] [299] [301] [305] \
+[306] [307] [310] [311] [316] [326] [336] SS0
+-------------0----1 1
+-------1---11------ 1
+---1--1--------1--- 1
+----1---1-------1-- 1
+---1-1-----------1- 1
+-------0------1--1- 1
+---1---111--------- 1
+--00------10------- 1
+--0----01-----1---- 1
+0---0-----1-----1-- 1
+-0--1--1--------0-- 1
+--01-0-01---------- 1
+10---110------1---- 1
+.names C2 [319] C3
+10 1
+.names RM2 C1 C2
+11 1
+.names [345] [347] C1
+11 1
+.names RM3 [55] [54]
+11 1
+.names RM2 [56] [55]
+11 1
+.names [312] [345] [56]
+11 1
+.names RM2 [61] [60]
+11 1
+.names MANCHE1 MANCHE0 [345] [61]
+111 1
+.names PRIMO1 PRIMO0 [64]
+11 1
+.names PS1 PS0 [299]
+1- 1
+-0 1
+.names INIZIA MANCHE1 [300]
+00 1
+.names SECONDO0 PS1 [301]
+1- 1
+-1 1
+.names MANCHE0 FINE LatchOut_v6 [303] [346] [302]
+----1 1
+1001- 1
+.names INIZIA MANCHE1 [303]
+01 1
+.names PRIMO1 SECONDO1 [304]
+11 1
+.names PRIMO1 PRIMO0 SECONDO0 PS1 PS0 [305]
+00--- 1
+--010 1
+.names PP0 PS1 [306]
+1- 1
+-1 1
+.names SECONDO1 [299] [307]
+1- 1
+-1 1
+.names RM4 [54] [308]
+0- 1
+-1 1
+.names SECONDO0 PP1 [310]
+10 1
+.names SECONDO1 PS0 [311]
+11 1
+.names MANCHE1 MANCHE0 [312]
+10 1
+.names RM3 [60] [313]
+0- 1
+-0 1
+.names PP0 PS0 [316]
+11 1
+.names MANCHE0 RM3 [319]
+0- 1
+-0 1
+.names PRIMO1 SS0 [325]
+10 1
+.names PRIMO0 [304] [326]
+01 1
+.names PP1 PP0 [336]
+1- 1
+-1 1
+.names READY IM4 IM3 IM2 TT4 TT3 TT2 [342]
+0---000 1
+-111111 1
+-011011 1
+-101101 1
+-001001 1
+-110110 1
+-010010 1
+-100100 1
+.names READY LatchOut_v5 [300] [344]
+011 1
+.names RM1 RM0 [345]
+11 1
+.names MANCHE0 [300] [346]
+01 1
+.names MANCHE1 MANCHE0 [347]
+01 1
+.end

@@ -1,0 +1,31 @@
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+# * *        * *  * *
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+#       * *  * *        * *
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+#
+# Autori Loris Hoxhaj & Mattia Nicolis
+# A.A.2023-24
+# Demultiplexer con 2  bit di scelta e un ingresso a 1 bit
+
+.model DEMUX2
+.inputs S1 S0 A
+.outputs X Y Z W
+
+.names S1 S0 A X
+001 1
+
+.names S1 S0 A Y
+011 1
+
+.names S1 S0 A Z
+101 1
+
+.names S1 S0 A W
+111 1
+
+.end
+

@@ -1,0 +1,145 @@
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+# * *        * *  * *
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+#       * *  * *        * * 
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+#
+# Autori Loris Hoxhaj & Mattia Nicolis
+# A.A. 2023-24
+# DATAPATH che collega tra loro tutti i diversi componenti
+
+.model DATAPATH
+.inputs VIA PRIMO1 PRIMO0 SECONDO1 SECONDO0
+.outputs MANCHE1 MANCHE0 READY FINE
+
+# richiamo le costanti
+.subckt costante0 O0=x0
+.subckt costante00 O1=y1 O0=y0
+.subckt costante00000 O4=z4 O3=z3 O2=z2 O1=z1 O0=z0
+.subckt costante00001 O4=w4 O3=w3 O2=w2 O1=w1 O0=w0
+.subckt costante00100 O4=u4 O3=u3 O2=u2 O1=u1 O0=u0
+.subckt costante000 O2=m2 O1=m1 O0=m0
+
+# mux prima della registrazione di precedente (caso PRIMO)
+.subckt MUX2 I=VIA P1=y1 P0=y0 S1=SUCCP1 S0=SUCCP0 O1=PP1 O0=PP0
+
+# mux prima della registrazione di precedente (caso SECONDO)
+.subckt MUX2 I=VIA P1=y1 P0=y0 S1=SUCCS1 S0=SUCCS0 O1=PS1 O0=PS0
+
+# controllo vincitore manche
+.subckt LOGICAGIOCO A1=PP1 A0=PP0 B1=PS1 B0=PS0 C1=PRIMO1 C0=PRIMO0 D1=SECONDO1 D0=SECONDO0 O1=MANCHE1 O0=MANCHE0 X1=SP1 X0=SP0 Y1=SS1 Y0=SS0
+
+# registrazione del sucessivo (caso PRIMO)
+.subckt REG2 A1=SP1 A0=SP0 O1=SUCCP1 O0=SUCCP0
+
+# registrazione del sucessivo (caso SECONDO)
+.subckt REG2 A1=SS1 A0=SS0 O1=SUCCS1 O0=SUCCS0
+
+# mux iniziale (NMA=numero manche aggiornato, IM=inizia manche)
+.subckt MUX5 I=VIA P4=z4 P3=z3 P2=z2 P1=z1 P0=z0 S4=NMA4 S3=NMA3 S2=NMA2 S1=NMA1 S0=NMA0 O4=IM4 O3=IM3 O2=IM2 O1=IM1 O0=IM0
+
+# registro che conta le manche (RM=registro manche)
+.subckt REG5 A4=IM4 A3=IM3 A2=IM2 A1=IM1 A0=IM0 O4=RM4 O3=RM3 O2=RM2 O1=RM1 O0=RM0
+
+# demux a 2 bit di scelta prima del conteggio delle manche (MNV=manche non valida, MV=manche vittoria, CV=caso vittoria, CP=caso pareggio)
+.subckt DEMUXS5 S1=MANCHE1 S0=MANCHE0 A4=RM4 A3=RM3 A2=RM2 A1=RM1 A0=RM0 X4=MNV4 X3=MNV3 X2=MNV2 X1=MNV1 X0=MNV0 Y4=MV4 Y3=MV3 Y2=MV2 Y1=MV1 Y0=MV0 Z4=CV4 Z3=CV3 Z2=CV2 Z1=CV1 Z0=CV0 W4=CP4 W3=CP3 W2=CP2 W1=CP1 W0=CP0 
+
+# sommatore per aumentare il numero delle manche (caso: manche  vittoria)
+.subckt SUM5 A4=MV4 A3=MV3 A2=MV2 A1=MV1 A0=MV0 B4=w4 B3=w3 B2=w2 B1=w1 B0=w0 O4=BB4 O3=BB3 O2=BB2 O1=BB1 O0=BB0
+
+# sommatore per aumentare il numero delle manche (caso: caso vittoria)
+.subckt SUM5 A4=CV4 A3=CV3 A2=CV2 A1=CV1 A0=CV0 B4=w4 B3=w3 B2=w2 B1=w1 B0=w0 O4=CC4 O3=CC3 O2=CC2 O1=CC1 O0=CC0
+
+# sommatore per aumantare il numero delle manche (caso: caso pareggio)
+.subckt SUM5 A4=CP4 A3=CP3 A2=CP2 A1=CP1 A0=CP0 B4=w4 B3=w3 B2=w2 B1=w1 B0=w0 O4=DD4 O3=DD3 O2=DD2 O1=DD1 O0=DD0
+
+# mux a 2 bit di scelta in alto a destra
+.subckt MUXS5 I1=MANCHE1 I0=MANCHE0 A4=MNV4 A3=MNV3 A2=MNV2 A1=MNV1 A0=MNV0 B4=BB4 B3=BB3 B2=BB2 B1=BB1 B0=BB0 C4=CC4 C3=CC3 C2=CC2 C1=CC1 C0=CC0 D4=DD4 D3=DD3 D2=DD2 D1=DD1 D0=DD0 O4=NMA4 O3=NMA3 O2=NMA2 O1=NMA1 O0=NMA0
+
+# aggrego i bit di PRIMO e SECONDO per ottenere il numero di manche aggiuntive alle quattro di default 
+.subckt CONCATENAZIONE A1=PRIMO1 A0=PRIMO0 B1=SECONDO1 B0=SECONDO0 O3=MP3 O2=MP2 O1=MP1 O0=MP0
+
+# sommatore per ottenere il numero massimo di manche (MT=manche totali)
+.subckt SUM5 A4=u4 A3=u3 A2=u2 A1=u1 A0=u0 B4=x0 B3=MP3 B2=MP2 B1=MP1 B0=MP0 O4=MT4 O3=MT3 O2=MT2 O1=MT1 O0=MT0
+
+# mux a 1 bit di scelta per passare il numero di manche totali ottenuto con il sommatore
+.subckt MUX5 I=VIA P4=MT4 P3=MT3 P2=MT2 P1=MT1 P0=MT0 S4=RT4 S3=RT3 S2=RT2 S1=RT1 S0=RT0 O4=TT4 O3=TT3 O2=TT2 O1=TT1 O0=TT0
+
+# registro che salva il numero totale di manche (RT=registro totalea)
+.subckt REG5 A4=TT4 A3=TT3 A2=TT2 A1=TT1 A0=TT0 O4=RT4 O3=RT3 O2=RT2 O1=RT1 O0=RT0
+
+# maggiore uguale per calcolare READY
+.subckt MAG5 A4=IM4 A3=IM3 A2=IM2 A1=IM1 A0=IM0 B4=u4 B3=u3 B2=u2 B1=u1 B0=u0 O=READY
+
+# comparatore per calcolare FINE
+.subckt COMP5 A4=TT4 A3=TT3 A2=TT2 A1=TT1 A0=TT0 B4=IM4 B3=IM3 B2=IM2 B1=IM1 B0=IM0 O=FINE
+
+.search mux1-2bit.blif
+.search mux1-5bit.blif
+.search mux2-2bit.blif
+.search mux2-5bit.blif
+.search demux1-2bit.blif
+.search bloccologica.blif
+.search registro2bit.blif
+.search registro5bit.blif
+.search comparatore5bit.blif
+.search sommatore5bit.blif
+.search maggiore5bit.blif
+.search aggregazionebit.blif
+.end
+
+# creo la costante 0
+.model costante0
+.outputs O0
+.names O0
+.end
+
+# creo la costante 00
+.model costante00
+.outputs O1 O0
+.names O1
+.names O0
+.end
+
+# creo la costante 00000
+.model costante00000
+.outputs O4 O3 O2 O1 O0
+.names O4
+.names O3
+.names O2
+.names O1
+.names O0
+.end
+
+# creo la costante 00001
+.model costante00001
+.outputs O4 O3 O2 O1 O0
+.names O4
+.names O3
+.names O2
+.names O1
+.names O0
+1
+.end
+
+#creo la costante 00100
+.model costante00100
+.outputs O4 O3 O2 O1 O0
+.names O4
+.names O3
+.names O2
+1
+.names O1
+.names O0
+.end
+
+#creo la costante 000
+.model costante000
+.outputs O2 O1 O0
+.names O2
+.names O1
+.names O0
+.end

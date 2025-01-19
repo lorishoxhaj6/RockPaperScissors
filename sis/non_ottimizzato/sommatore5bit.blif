@@ -1,0 +1,25 @@
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+# * *        * *  * * 
+# * * * * *  * *  * * * * * 
+# * * * * *  * *  * * * * *
+#       * *  * *        * *
+# * * * * *  * *  * * * * *
+# * * * * *  * *  * * * * *
+# 
+# Autori Loris Joxhaj & Mattia Nicolis
+# A.A. 2023-24
+# Sommatore a 5 bit
+
+.model SUM5
+.inputs A4 A3 A2 A1 A0 B4 B3 B2 B1 B0 
+.outputs O4 O3 O2 O1 O0 
+.names 0
+.subckt SUM1 A=A0 B=B0 CIN=0 O=O0 COUT=C0
+.subckt SUM1 A=A1 B=B1 CIN=C0 O=O1 COUT=C1
+.subckt SUM1 A=A2 B=B2 CIN=C1 O=O2 COUT=C2
+.subckt SUM1 A=A3 B=B3 CIN=C2 O=O3 COUT=C3
+.subckt SUM1NR A=A4 B=B4 CIN=C3 O=O4 
+.search sommatore1bit.blif
+.search sommatore1bit-rip.blif
+.end
