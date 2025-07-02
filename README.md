@@ -18,7 +18,7 @@ Il progetto consiste nella realizzazione di un dispositivo per gestire le partit
 
 ---
 
-## 🗁 Struttura del Progetto
+##  Struttura del Progetto
 La struttura dei file del progetto è organizzata come segue:
 ```
 VRXXXXXX_VRXXXXXX/
@@ -37,7 +37,7 @@ VRXXXXXX_VRXXXXXX/
 
 ---
 
-## 🚀 Come Avviare il Progetto
+##  Come Avviare il Progetto
 ### Requisiti
 - **Simulatore Verilog**: Ad esempio, ModelSim o Icarus Verilog
 - **Strumenti SIS**: Disponibili nell'ambiente di sviluppo del corso
@@ -64,7 +64,7 @@ VRXXXXXX_VRXXXXXX/
 
 ---
 
-## 🔰 Dettagli Tecnici
+##  Dettagli Tecnici
 - **Ingressi del circuito**:
   - `PRIMO` [2 bit]: Mossa del primo giocatore
   - `SECONDO` [2 bit]: Mossa del secondo giocatore
@@ -78,7 +78,7 @@ VRXXXXXX_VRXXXXXX/
 
 ---
 
-## 🛠️ Funzionalità Implementate
+## 🛠 Funzionalità Implementate
 - **Gestione completa delle regole del gioco**:
   - Rispetto delle regole di vittoria e pareggio.
   - Validazione delle mosse secondo i vincoli specificati.
@@ -88,14 +88,14 @@ VRXXXXXX_VRXXXXXX/
 
 ---
 
-## 🥽‍♂️ Testing
+## Testing
 Eseguire i test automatici per verificare:
 - **Correttezza delle regole**: Validazione delle mosse e degli esiti.
 - **Confronto Verilog-SIS**: Equivalenza comportamentale dei modelli.
 
 ---
 
-## 📜 Licenza
+##  Licenza
 Questo progetto è ad uso esclusivamente accademico e non è distribuito pubblicamente.
 
 ---
